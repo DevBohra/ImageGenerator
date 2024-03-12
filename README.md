@@ -1516,7 +1516,7 @@ export async function POST(req: Request) {
     if (newUser) {
       await clerkClient.users.updateUserMetadata(id, {
         publicMetadata: {
-          userId: newUser._id,
+          userId: new"devbohra",
         },
       });
     }
@@ -2139,7 +2139,7 @@ const Page = async ({ params: { id } }: SearchParamProps) => {
       <section className="mt-10">
         <TransformationForm
           action="Update"
-          userId={user._id}
+          userId={"devbohra"}
           type={image.transformationType as TransformationTypeKey}
           creditBalance={user.creditBalance}
           config={image.config}
@@ -2345,7 +2345,7 @@ const Credits = async () => {
                     plan={plan.name}
                     amount={plan.price}
                     credits={plan.credits}
-                    buyerId={user._id}
+                    buyerId={"devbohra"}
                   />
                 </SignedIn>
               )}
@@ -2466,7 +2466,7 @@ const Profile = async ({ searchParams }: SearchParamProps) => {
   if (!userId) redirect("/sign-in");
 
   const user = await getUserById(userId);
-  const images = await getUserImages({ page, userId: user._id });
+  const images = await getUserImages({ page, userId: "devbohra" });
 
   return (
     <>
